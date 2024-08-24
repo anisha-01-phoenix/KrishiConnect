@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../model/orders.dart';
 
-class OrderListItemSingleBidder extends StatelessWidget {
+class OrderListItemBuyer extends StatelessWidget {
   final Order order;
 
-  OrderListItemSingleBidder({required this.order});
+  OrderListItemBuyer({required this.order});
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +20,12 @@ class OrderListItemSingleBidder extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image.asset(
-                order.imageUrl,
-                height: 150.0,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(height: 10.0),
             Text(
               order.productName,
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              'MSP Price: ₹${order.mspPrice.toStringAsFixed(2)}',
+              'Price: ₹${order.mspPrice.toStringAsFixed(2)}',
               style: TextStyle(fontSize: 16.0, color: Colors.orange.shade700),
             ),
             SizedBox(height: 16.0),
@@ -45,7 +35,6 @@ class OrderListItemSingleBidder extends StatelessWidget {
                 SizedBox(width: 5.0),
                 Text(bidder.region),
                 Spacer(),
-                Icon(Icons.scale, color: Colors.blue),
                 SizedBox(width: 5.0),
                 Text(
                   '${bidder.quantity} ${bidder.quantity_unit}',
@@ -53,10 +42,22 @@ class OrderListItemSingleBidder extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 8.0),
-            Text(
-              'Price/Unit: ₹${bidder.pricePerUnit.toStringAsFixed(2)}',
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Price/Unit: ₹${bidder.pricePerUnit.toStringAsFixed(2)}',
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'Shipped',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

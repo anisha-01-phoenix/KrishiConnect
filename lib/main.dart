@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishi_connect/screens/dashboard_buyer.dart';
 import 'package:krishi_connect/screens/dashboard_farmer.dart';
 
 void main() {
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DashboardFarmer(),
+      home: DashboardBuyer(),
     );
   }
 }
