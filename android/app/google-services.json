@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "102192060840",
+    "project_id": "krishiconnect-de9cd",
+    "storage_bucket": "krishiconnect-de9cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102192060840:android:9d1ee68109e7e9d007a59d",
+        "android_client_info": {
+          "package_name": "com.krishiconnect.krishi_connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASlRxjOaUoTbcv-qMbZOOZjhO4MDwrQVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
