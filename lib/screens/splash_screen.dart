@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:krishi_connect/screens/dashboard.dart';
 import 'package:krishi_connect/screens/test_screen.dart';
@@ -13,15 +14,18 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  final User? _authUser = FirebaseAuth.instance.currentUser;
+
   @override
   void initState() {
     super.initState();
+
 
     // Navigate to HomeScreen after 2 seconds
     Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
+        MaterialPageRoute(builder: (context) => (_authUser==null)?LoginScreen():Dashboard()),
       );
     });
   }

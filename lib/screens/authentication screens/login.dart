@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:krishi_connect/screens/authentication%20screens/add_details.dart';
+import 'package:krishi_connect/screens/authentication%20screens/user_details.dart';
 import 'package:krishi_connect/screens/dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => AddDetailsScreen()),
+          MaterialPageRoute(builder: (context) => UserDetailsScreen()),
         );
       }
     } catch (e) {
