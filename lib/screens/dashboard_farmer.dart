@@ -1,41 +1,37 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:krishi_connect/widgets/drawer.dart';
+import 'package:krishi_connect/widgets/drawer_farmer.dart';
 
-import 'navigation_bar screens/home_page.dart';
-import 'navigation_bar screens/orders_page.dart';
-import 'navigation_bar screens/products_page.dart';
+import 'navigation_bar screens/home_page_farmer.dart';
+import 'navigation_bar screens/products_page_farmer.dart';
 import 'navigation_bar screens/profile_page.dart';
 
-class Dashboard extends StatefulWidget {
+class DashboardFarmer extends StatefulWidget {
   @override
-  _DashboardState createState() => _DashboardState();
+  _DashboardFarmerState createState() => _DashboardFarmerState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardFarmerState extends State<DashboardFarmer> {
   int _currentIndex = 0;
 
   // Icons for the bottom navigation bar
   final List<IconData> _iconList = [
     Icons.home_rounded,
-    Icons.spa_rounded,
-    Icons.agriculture_rounded,
+    Icons.add,
     Icons.person_rounded,
   ];
 
   // Labels for each icon
   final List<String> _labels = [
     'Home',
-    'Products',
-    'Orders',
+    'Add Product',
     'Profile',
   ];
 
   // Corresponding screens for each tab
   final List<Widget> _pages = [
-    HomePage(),
-    ProductsPage(),
-    OrdersPage(),
+    HomePageFarmer(),
+    ProductsPageFarmer(),
     ProfilePage(),
   ];
 
@@ -45,15 +41,8 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: Text(_labels[_currentIndex]), // Title of the app
       ),
-      drawer: CustomDrawer(),
+      drawer: CustomDrawerFarmer(),
       body: _pages[_currentIndex],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Action for the + icon button
-        },
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         itemCount: _iconList.length,
         tabBuilder: (int index, bool isActive) {
@@ -78,7 +67,7 @@ class _DashboardState extends State<Dashboard> {
           );
         },
         activeIndex: _currentIndex,
-        gapLocation: GapLocation.center,
+        gapLocation: GapLocation.none, // Remove gap for floating action button
         notchSmoothness: NotchSmoothness.softEdge,
         leftCornerRadius: 12,
         rightCornerRadius: 12,
