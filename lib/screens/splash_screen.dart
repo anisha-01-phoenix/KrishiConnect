@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:krishi_connect/screens/dashboard.dart';
-import 'package:krishi_connect/screens/test_screen.dart';
+import 'package:krishi_connect/screens/dashboard_farmer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'authentication screens/login.dart';
 
@@ -25,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => (_authUser==null)?LoginScreen():Dashboard()),
+        MaterialPageRoute(builder: (context) => (_authUser==null)?LoginScreen():DashboardFarmer()),
       );
     });
   }

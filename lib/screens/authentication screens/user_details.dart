@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:krishi_connect/screens/dashboard.dart';
+import 'package:krishi_connect/screens/dashboard_farmer.dart';
 
 class UserDetailsScreen extends StatefulWidget {
   @override
@@ -164,7 +164,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
 
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => Dashboard()),
+                          MaterialPageRoute(builder: (context) => DashboardFarmer()),
                         );
                         // Perform the submission or other operations
                       }
