@@ -7,7 +7,6 @@ import 'package:krishi_connect/widgets/search.dart';
 import '../../model/product.dart';
 
 class HomePageFarmer extends StatelessWidget {
-
   List<Product> products = [
     Product(
       name: 'Wheat',
@@ -17,9 +16,11 @@ class HomePageFarmer extends StatelessWidget {
       quantity: 1000,
       status: 'Listed',
       estimatedPrice: 1500.00,
+      msp: 2000.00,
       storageOption: 'Self',
       quantity_unit: 'kg',
       imageUrl: 'assets/images/wheat.png',
+      farmerName: 'Priyanshu',
     ),
     Product(
       name: 'Strawberry',
@@ -27,11 +28,13 @@ class HomePageFarmer extends StatelessWidget {
       region: 'Jharkhand',
       quality: 'C',
       quantity: 100,
+      msp: 200.00,
       status: 'Pending',
       estimatedPrice: 100.00,
       storageOption: 'Cold Storage',
       quantity_unit: 'kg',
       imageUrl: 'assets/images/strawberries.png',
+      farmerName: 'Aditya',
     ),
     Product(
       name: 'Tulsi',
@@ -41,9 +44,11 @@ class HomePageFarmer extends StatelessWidget {
       quantity: 500,
       status: 'Verified',
       estimatedPrice: 2000.00,
+      msp: 5000.00,
       storageOption: 'Warehouse',
       quantity_unit: 'kg',
       imageUrl: 'assets/images/tulsi.png',
+      farmerName: 'Anisha',
     ),
     Product(
       name: 'Rice',
@@ -53,9 +58,11 @@ class HomePageFarmer extends StatelessWidget {
       quantity: 500,
       status: 'Verified',
       estimatedPrice: 2000.00,
+      msp: 5000.00,
       storageOption: 'Warehouse',
       quantity_unit: 'kg',
       imageUrl: 'assets/images/rice.png',
+      farmerName: 'Uddeshya',
     ),
   ];
 
