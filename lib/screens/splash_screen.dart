@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:krishi_connect/screens/authentication%20screens/user_details.dart';
+import 'package:krishi_connect/screens/dashboard_buyer.dart';
 import 'package:krishi_connect/screens/dashboard_farmer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../model/user.dart';
@@ -45,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ? LoginScreen()
               : (userData == null)
               ? UserDetailsScreen()
-              : DashboardFarmer()),
+              : (userData.userType == UserType.farmer)?DashboardFarmer():DashboardBuyer()),
     );
   }
 

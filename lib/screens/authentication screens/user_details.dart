@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishi_connect/screens/dashboard_buyer.dart';
 import 'package:krishi_connect/screens/dashboard_farmer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -183,7 +184,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
 
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => DashboardFarmer()),
+                          MaterialPageRoute(builder: (context) => (userModel.userType == UserType.farmer)?DashboardFarmer():DashboardBuyer()),
                         );
                         // Perform the submission or other operations
                       }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../widgets/drawer_buyers.dart';
 import 'navigation_bar screens/cart_page_buyer.dart';
 import 'navigation_bar screens/home_page_buyer.dart';
+import 'navigation_bar screens/profile_page.dart';
 import 'navigation_bar screens/profile_page_buyer.dart';
 
 class DashboardBuyer extends StatefulWidget {
@@ -32,7 +33,7 @@ class _DashboardBuyerState extends State<DashboardBuyer> {
   final List<Widget> _pages = [
     HomePageBuyer(),
     CartPageBuyer(),
-    ProfilePageBuyer(),
+    ProfilePage(),
   ];
 
   @override

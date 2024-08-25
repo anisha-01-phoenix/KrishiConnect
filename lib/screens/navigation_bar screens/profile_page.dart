@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:krishi_connect/screens/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../model/user.dart';
@@ -17,6 +19,10 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: FutureBuilder<UserModel?>(
         future: getUserModel(), // Fetch user model asynchronously
@@ -62,6 +68,33 @@ class ProfilePage extends StatelessWidget {
                   Text(
                     'IFSC Code: ${user.ifscCode}',
                     style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(height: 32),
+                  // Submit Button
+                  Center(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.redAccent,
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        minimumSize: Size(screenWidth*0.8, screenHeight*0.05),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      onPressed: () async{
+
+                        await FirebaseAuth.instance.signOut();
+                        final SharedPreferences prefs = await SharedPreferences.getInstance();
+                        await prefs.clear(); // Clear all data from SharedPreferences
+
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => SplashScreen()),
+                        );
+                        },
+                      child: Text('Log Out', style: TextStyle(color: Colors.white),),
+                    ),
                   ),
                 ],
               ),
