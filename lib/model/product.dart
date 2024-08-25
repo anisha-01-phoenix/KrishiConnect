@@ -7,8 +7,10 @@ class Product {
   final String quantity_unit;
   final String status;
   final double estimatedPrice;
+  final double msp;
   final String storageOption;
   final String imageUrl;
+  final String farmerName;
 
   Product({
     required this.name,
@@ -19,7 +21,10 @@ class Product {
     required this. quantity_unit,
     required this.status,
     required this.estimatedPrice,
+    required this.msp,
     required this.storageOption,
     required this.imageUrl,
+    required this.farmerName,
   });
 }
+
