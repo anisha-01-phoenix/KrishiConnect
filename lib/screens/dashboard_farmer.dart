@@ -2,17 +2,20 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:krishi_connect/widgets/drawer_farmer.dart';
 
+import '../model/user.dart';
 import 'navigation_bar screens/home_page_farmer.dart';
 import 'navigation_bar screens/products_page_farmer.dart';
 import 'navigation_bar screens/profile_page.dart';
 
 class DashboardFarmer extends StatefulWidget {
+
   @override
   _DashboardFarmerState createState() => _DashboardFarmerState();
 }
 
 class _DashboardFarmerState extends State<DashboardFarmer> {
   int _currentIndex = 0;
+
 
   // Icons for the bottom navigation bar
   final List<IconData> _iconList = [

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:krishi_connect/screens/dashboard_farmer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../model/user.dart';
 
 class UserDetailsScreen extends StatefulWidget {
   @override
@@ -15,6 +18,12 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _accountNumberController = TextEditingController();
   final TextEditingController _ifscController = TextEditingController();
+
+  // Save UserModel to SharedPreferences
+  Future<void> saveUserModel(UserModel userModel) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('userModel', userModel.toJson());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,12 +164,22 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState?.validate() ?? true) {
                         // If the form is valid, display a snackbar or handle submission
+                        String message = 'Processing and Storing Data';
+                        if (_selectedUserType=='-- Select --'){
+                          message = "Please select user type";
+                        }
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing and Storing Data')),
+                          SnackBar(content: Text(message)),
                         );
+                        if (_selectedUserType=='-- Select --'){
+                          return;
+                        }
+                        UserModel userModel = UserModel(name: _nameController.text.trim(), userType: (_selectedUserType == 'Farmer')?UserType.farmer:UserType.buyer, aadharNumber: _aadharController.text.trim(), addressLine: _addressController.text.trim(), accountNumber: _accountNumberController.text.trim(), ifscCode: _ifscController.text.trim());
+
+                        await this.saveUserModel(userModel);
 
                         Navigator.pushReplacement(
                           context,
