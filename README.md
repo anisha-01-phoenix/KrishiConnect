@@ -40,6 +40,6 @@ To run the app locally, follow these steps:
    ```bash
    flutter run
 ## How to Use
-Farmers can register, log in, and add products for sale, including setting the price and quantity.
-## Consumers can browse products, place orders, and bid on products.
-Retailers can also browse and place bulk orders, making it easier for them to source products directly from farmers.
+- Farmers can register, log in, and add products for sale, including setting the price and quantity.
+- Consumers can browse products, place orders, and bid on products.
+- Retailers can also browse and place bulk orders, making it easier for them to source products directly from farmers.
